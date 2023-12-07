@@ -1,3 +1,3 @@
 <?php
-// code lol
+        var_dump( $_POST );
 ?>
