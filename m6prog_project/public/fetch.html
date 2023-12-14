@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="opdrachten/03_json/assets/appFetch.js"></script>
+    <script defer src="assets/js/appFetch.js"></script>
     <title>Document</title>
 </head>
 <body>
 
     <form id="getForm" action="fetchGet.php">
         <label for="article">article: </label>
-        <input type="text">
+        <input type="text" name="article" id="article">
 
         <label for="maxPrice">maxprice: </label>
-        <input type="text">
+        <input type="text" name="maxPrice">
 
         <input type="submit" name="submit" value="submit">
     </form>
 
     <form id="postForm" action="fetchPost.php">
-        <form id="getForm" action="fetchGet.php">
             <label for="article">article: </label>
             <input type="text">
     
@@ -27,7 +26,6 @@
             <input type="text">
     
             <input type="submit" name="submit" value="submit">
-        </form>
     </form>
 
 </body>
