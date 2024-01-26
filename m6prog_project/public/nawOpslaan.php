@@ -1,52 +1,23 @@
 <?php
-        $naam = '';
-        $straat = '';
-        $huisnummer = '';
-        $postcode = '';
-        $emailAdres = '';
-        
-        echo '<b>naam: </b>';
-        if ( empty( $_POST['naam']) ) {
-            echo '<b style="color:#f00;">Je moet wel je naam invullen</b>';
-        } else {
-            $naam = $_POST['naam'];
-        }
-        echo $naam;
-        echo '<br>';
+    include '../source/database.php';
+    $data = file_get_contents('php://input');
+    $json = json_decode($data);
 
-        echo '<b>straat: </b>';
-        if ( empty( $_POST['straat']) ) {
-            echo '<b style="color:#f00;">Je moet wel je straat invullen</b>';
-        } else {
-            $straat = $_POST['straat'];
-        }
-        echo $straat;
-        echo '<br>';
+    $postcode = substr($json->postcode, 0, 5);
+    
+    $conn = database_connect();
+    $q = "insert into naw (naam, email, straat, huisnummer, postcode) values (?, ?, ?, ?, ?); ";
+    $stmt = $conn->prepare($q);
+    $stmt->bind_param("sssss",
+                        $json->naam,
+                        $json->email,
+                        $json->straat,
+                        $json->huisnummer,
+                        $postcode
+                    );
+    $result = $stmt->execute();
+    $response=["succeeded" => $result];
 
-        echo '<b>huisnummer: </b>';
-        if ( empty( $_POST['huisnummer']) ) {
-            echo '<b style="color:#f00;">Je moet wel je huisnummer invullen</b>';
-        } else {
-            $huisnummer = $_POST['huisnummer'];
-        }
-        echo $huisnummer;
-        echo '<br>';
+    echo json_encode($response);
 
-        echo '<b>postcode: </b>';
-        if ( empty( $_POST['postcode']) ) {
-            echo '<b style="color:#f00;">Je moet wel je postcode invullen</b>';
-        } else {
-            $postcode = $_POST['postcode'];
-        }
-        echo $postcode;
-        echo '<br>';
-
-        echo '<b>email Adres: </b>';
-        if ( empty( $_POST['emailAdres']) ) {
-            echo '<b style="color:#f00;">Je moet wel je email adres invullen</b>';
-        } else {
-            $emailAdres = $_POST['emailAdres'];
-        }
-        echo $emailAdres;
-        echo '<br>';
 ?>

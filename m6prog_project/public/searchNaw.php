@@ -14,25 +14,17 @@ function GetQueryResultAssoc($result){
 }
 
 function FindPersoon($conn,$name){
-    if($conn){
-        try{
             $q = "SELECT * FROM m6prog_db.naw WHERE naam = ?";
             $stmt = $conn->prepare($q);
             $stmt->bind_param("s", $name);
             $stmt->execute();
             $result = $stmt->get_result();
-
             $searchResult = GetQueryResultAssoc($result);
             return $searchResult;
-        }
-        catch(ex){
-            echo "error during query" . ex;
-        }
-    }
-    return [];
+        
 }
 
-$searchInput = $_GET['searchPersoon'];
+$searchInput = $_GET['search'];
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_SCHEMA);
 $searchResults = FindPersoon($conn, $searchInput);

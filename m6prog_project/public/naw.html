@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer type="text/javascript" src="assets/js/app.js"></script>
+    <script defer type="text/javascript" src="assets/js/appNaw.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <form method="post" action="nawOpslaan.php">
+    <form id="nawForm" method="post" action="nawOpslaan.php">
         <label for="naam">Naam:</label>
-        <input type="text">
-        <label for="straat">Sraat:</label>
-        <input type="text">
-        <label for="huisnummer">Huisnummer:</label>
-        <input type="text">
+        <input type="text" name="naam">
+        <label for="email">Email:</label>
+        <input type="text" name="email">
+        <label for="straat">straat:</label>
+        <input type="text" name="straat">
+        <label for="huisnummer">huisnummer:</label>
+        <input type="text" name="huisnummer">
         <label for="postcode">Postcode:</label>
-        <input type="text">
-        <label for="emailAdres">Email Adres:</label>
-        <input type="text">
+        <input type="text" name="postcode">
         <input type="submit" name="submit" id="" value="Zoeken">
 
 </body>

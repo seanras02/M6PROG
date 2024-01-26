@@ -1,4 +1,4 @@
-use:- m6prog;
+USE m6prog;
 
 insert into naw (id,naam,email,straat,huisnummer,postcode)
 values

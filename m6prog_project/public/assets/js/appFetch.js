@@ -1,3 +1,4 @@
+
 let postForm = document.getElementById("postForm");
 
 postForm.addEventListener("submit", (event)=>{
