@@ -27,12 +27,16 @@ function addPerson(event){
         body: JSON.stringify(jsonForm)
     }
 
-    fetch("nawOpslaan.php",options)
-    .then(async (response)=>
-    {
-        console.log(response);
-        let json = await response.json();
-        console.log(json);
+    fetch("nawOpslaan.php", options)
+    .then(response => response.json())
+    .then(data => {
+        if (false === data.success) {
+            alert('niet goed');
+            document.getElementById("errorMessage").innerText = data.error;
+            return false;
+        }
+        console.log( 'Je data is toegevoegd met id:' + data.id );
+        document.getElementById("successMessage").innerText = "data submitted!!!! yippers!!";
     })
+    .catch(error => console.error(error));
 }
-

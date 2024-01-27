@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer type="text/javascript" src="assets/js/appNaw.js" defer></script>
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Document</title>
 </head>
 <body>
     <form id="nawForm" method="post" action="nawOpslaan.php">
@@ -19,6 +17,12 @@
         <label for="postcode">Postcode:</label>
         <input type="text" name="postcode">
         <input type="submit" name="submit" id="" value="Zoeken">
+    </form>
+
+    <div id="successMessage"></div>
+    <div id="errorMessage"></div>
+
+    <script defer type="text/javascript" src="assets/js/appNaw.js" defer></script>
 
 </body>
 </html>
